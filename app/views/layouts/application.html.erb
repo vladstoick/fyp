@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fyp</title>
+    <%= csrf_meta_tags %>
+
+    <%= javascript_pack_tag 'application' %>
+    <%= stylesheet_pack_tag 'application' %>
+  </head>
+
+  <body>
+    <%= render partial: "partials/navigation/header" %>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>
