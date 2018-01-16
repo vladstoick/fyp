@@ -1,0 +1,16 @@
+<h1><%= @challenge.title %></h1>
+
+<hr>
+
+<h3>Content</h3>
+<%= @challenge.content %>
+
+<h3>SQL Schema</h3>
+<%= @challenge.sql_schema %>
+
+<h3>SQL Seed</h3>
+<%= @challenge.sql_seed %>
+
+<hr>
+
+<%= link_to "Edit", edit_challenge_path(id: @challenge), class: "btn btn-primary" %>

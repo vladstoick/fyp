@@ -8,5 +8,14 @@
 // layout file, like app/views/layouts/application.html.erb
 import "./../styles/main.scss";
 import 'bootstrap';
+import prism from "prismjs";
+import CodeFlask from "codeflask";
+
+window.onload = function () {
+  var flask = new CodeFlask;
+  flask.run('#my-code-wrapper', {
+    language: "ruby",
+  })
+}
 
 console.log('Hello World from Webpacker');

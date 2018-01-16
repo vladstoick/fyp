@@ -1,1 +1,7 @@
 @import "~bootstrap/scss/bootstrap.scss";
+@import '~codeflask/src/codeflask.css';
+@import "~prismjs/themes/prism.css";
+
+#bodyContainer {
+  margin-top: 10px;
+}
