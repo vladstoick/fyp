@@ -1,5 +1,6 @@
 class ChallengesController < ApplicationController
-  before_action :load_challenge, except: :new
+  before_action :load_challenge, except: [:new, :create]
+
   def new
     @challenge = Challenge.new
   end
