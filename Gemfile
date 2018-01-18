@@ -56,5 +56,7 @@ group :development do
   gem 'pry'
 end
 
+gem 'sql_assess', git: 'git@github.com:vladstoick/fyp_sql_assess.git', require: true, branch: "feature/improve_asseor"
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

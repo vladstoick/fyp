@@ -46,7 +46,8 @@ class ChallengesController < ApplicationController
       :title,
       :content,
       :sql_schema,
-      :sql_seed
+      :sql_seed,
+      :sql_correct_query
     )
   end
 end
