@@ -1,0 +1,16 @@
+<h1><%= @challenge.title %></h1>
+
+<hr>
+<h3>Content:</h3>
+<p><%= @challenge.content %></p>
+<hr>
+<h3>Schema:</h3>
+<%= @challenge.sql_schema %>
+<hr>
+
+<%= form_tag challenge_submissions_path do %>
+  <div class="form-group">
+    <%= text_field_tag :solution, nil, class: "form-control" %>
+  </div>
+  <%= submit_tag "Submit", class: "btn btn-primary" %>
+<% end %>
