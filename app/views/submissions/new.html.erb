@@ -5,7 +5,7 @@
 <p><%= @challenge.content %></p>
 <hr>
 <h3>Schema:</h3>
-<%= @challenge.sql_schema %>
+<pre><code class="sql"><%= @challenge.sql_schema %></code></pre>
 <hr>
 
 <%= form_tag challenge_submissions_path do %>
