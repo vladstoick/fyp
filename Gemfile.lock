@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:vladstoick/fyp_sql_assess.git
-  revision: f87c507e395dc2e150ad5285a452acec907df756
+  revision: 0ad2722934c37320de53f5b647dd4c79eebbd9e0
   specs:
     sql_assess (0.1.0)
       mysql2
