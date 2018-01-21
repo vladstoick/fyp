@@ -1,1 +1,17 @@
 <h1>Success: <%= @submission.success %></h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Submission</th>
+      <th>Correct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Columns</td>
+      <td><pre><code><%= @submission.metadata["columns"]["student"] %></code></pre></td>
+      <td><pre><code><%= @submission.metadata["columns"]["instructor"] %></code></pre></td>
+    </tr>
+  </tbody>
+</table>

@@ -4,7 +4,7 @@ class SubmissionsController < ApplicationController
   def show
     @submission = Submission.find_by!(
       challenge_id: @challenge.id,
-      id: params.require(:id)
+      id: params.require(:id),
     )
   end
 
@@ -21,8 +21,14 @@ class SubmissionsController < ApplicationController
 
     submission = Submission.create!(
       sql_query: sql_query,
-      success: result.success?,
-      challenge_id: @challenge.id
+      success: result.success,
+      challenge_id: @challenge.id,
+      metadata: {
+        columns: {
+          student: result.student_columns,
+          instructor: result.instructor_columns,
+        }
+      },
     )
 
     redirect_to challenge_submission_path(
