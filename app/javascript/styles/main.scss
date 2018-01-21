@@ -1,6 +1,5 @@
 @import "~bootstrap/scss/bootstrap.scss";
-@import '~codeflask/src/codeflask.css';
-@import "~prismjs/themes/prism.css";
+@import "highlight.js/styles/default.css";
 
 #bodyContainer {
   margin-top: 10px;
