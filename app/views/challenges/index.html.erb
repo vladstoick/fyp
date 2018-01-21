@@ -1,0 +1,21 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @challenges.each do |challenge| %>
+      <tr>
+        <td><%= challenge.title %></td>
+        <td><%= link_to "Show challenge", challenge_path(id: challenge.id) %></td>
+        <td><%= link_to(
+          "New submission",
+          new_challenge_submission_path(challenge_id: challenge.id)
+        ) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,5 +1,5 @@
 class ChallengesController < ApplicationController
-  before_action :load_challenge, except: [:new, :create]
+  before_action :load_challenge, except: %i[new create index]
 
   def new
     @challenge = Challenge.new
@@ -33,6 +33,10 @@ class ChallengesController < ApplicationController
   end
 
   def show
+  end
+
+  def index
+    @challenges = Challenge.all
   end
 
   private
