@@ -1,6 +1,6 @@
 <h1>Create a new challenge</h1>
 
-<%= form_for @challenge do |f| %>
+<%= bootstrap_form_for @challenge do |f| %>
   <%= render partial: "form_fields", locals: { f: f } %>
   <%= f.submit "Create", class: "btn btn-primary" %>
 <% end %>

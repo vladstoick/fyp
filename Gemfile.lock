@@ -1,10 +1,18 @@
 GIT
   remote: git@github.com:vladstoick/fyp_sql_assess.git
-  revision: fdc8e905eef7267fb80dcd8056ddcccaec211a09
+  revision: 1dbf529dc9a45b349cbcc70ca29491b9ac74610f
   specs:
     sql_assess (0.1.0)
       mysql2
       sql-parser
+
+GIT
+  remote: https://github.com/bootstrap-ruby/rails-bootstrap-forms.git
+  revision: d9d28a4a6a2f10712f1fc956e63db8e2e26ce090
+  branch: master
+  specs:
+    bootstrap_form (4.0.0.dev)
+      rails (>= 5.0)
 
 GEM
   remote: https://rubygems.org/
@@ -233,6 +241,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
+  bootstrap_form!
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
