@@ -12,11 +12,11 @@ class SubmissionsController < ApplicationController
 
   def create
     sql_query = params.require(:solution)
-    result = SqlAssess::Assesor.new.asses(
-      @challenge.sql_schema,
-      @challenge.sql_correct_query,
-      @challenge.sql_seed,
-      sql_query
+    result = SqlAssess::Assesor.new.assess(
+      create_schema_sql_query: @challenge.sql_schema,
+      instructor_sql_query: @challenge.sql_correct_query,
+      seed_sql_query: @challenge.sql_seed,
+      student_sql_query: sql_query
     )
 
     submission = Submission.create!(
@@ -40,6 +40,6 @@ class SubmissionsController < ApplicationController
   private
 
   def load_challenge
-    @challenge = Challenge.find_by!(params.require(:challenge_id))
+    @challenge = Challenge.find(params.require(:challenge_id))
   end
 end

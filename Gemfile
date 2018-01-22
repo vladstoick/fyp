@@ -34,6 +34,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'mysql2'
 
+gem "bootstrap_form",
+    git: "https://github.com/bootstrap-ruby/rails-bootstrap-forms.git",
+    branch: "master"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
