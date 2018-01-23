@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180121214059) do
+ActiveRecord::Schema.define(version: 20180123122725) do
 
   create_table "challenges", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20180121214059) do
     t.text "sql_schema"
     t.text "sql_seed"
     t.text "sql_correct_query"
+    t.json "metadata"
     t.index ["user_id"], name: "index_challenges_on_user_id"
   end
 
