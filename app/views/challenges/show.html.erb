@@ -23,7 +23,8 @@
       <tr>
         <th>#</th>
         <% table["columns"].each do |column| %>
-          <th><%= column %></th>
+
+          <th><%= column.fetch("name") %> <%= column.fetch("type") %></th>
         <% end %>
       </tr>
     </thead>
@@ -32,7 +33,7 @@
         <tr>
           <th scope="row"><%= i %></td>
           <% table["columns"].each do |column| %>
-            <td><%= row[column] %></td>
+            <td><%= row.fetch(column.fetch("name")) %></td>
           <% end %>
         </tr>
       <% end %>
