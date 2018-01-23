@@ -16,4 +16,30 @@
 
 <hr>
 
+<% @challenge.metadata.each do |table| %>
+<h3><%= table["name"] %></h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <% table["columns"].each do |column| %>
+          <th><%= column %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% table["data"].each_with_index do |row, i| %>
+        <tr>
+          <th scope="row"><%= i %></td>
+          <% table["columns"].each do |column| %>
+            <td><%= row[column] %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<hr>
+
 <%= link_to "Edit", edit_challenge_path(id: @challenge), class: "btn btn-primary" %>
