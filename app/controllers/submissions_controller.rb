@@ -23,12 +23,7 @@ class SubmissionsController < ApplicationController
       sql_query: sql_query,
       success: result.success,
       challenge_id: @challenge.id,
-      metadata: {
-        columns: {
-          student: result.student_columns,
-          instructor: result.instructor_columns,
-        }
-      },
+      metadata: result.attributes,
     )
 
     redirect_to challenge_submission_path(
