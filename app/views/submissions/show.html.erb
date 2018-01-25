@@ -2,7 +2,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Column</th>
+      <th>Attribute</th>
       <th>Submission</th>
       <th>Correct</th>
     </tr>
@@ -12,6 +12,11 @@
       <td>Columns</td>
       <td><pre><code><%= @submission.metadata["columns"]["student_columns"] %></code></pre></td>
       <td><pre><code><%= @submission.metadata["columns"]["instructor_columns"] %></code></pre></td>
+    </tr>
+    <tr>
+      <td>Order by</td>
+      <td><pre><code><%= @submission.metadata["order_by"]["student_order_by"] %></code></pre></td>
+      <td><pre><code><%= @submission.metadata["order_by"]["instructor_order_by"] %></code></pre></td>
     </tr>
   </tbody>
 </table>
