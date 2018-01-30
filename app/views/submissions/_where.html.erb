@@ -1,0 +1,29 @@
+<% class_name = "where-clause-depth-#{depth}" %>
+<% if query == {} %>
+  <pre class="d-inline"><code class="d-inline">[]</code></pre>
+<% elsif query["type"] == SqlAssess::Parsers::Where::Type::AND %>
+  <% query["clauses"].each_with_index do |clause, i| %>
+    <% if i != 0 %>
+      <div class="<%= class_name %> py-2"><span class="font-weight-bold">AND</span></div>
+      </div>
+    <% end %>
+    <%= render partial: "where", locals: {
+      query: clause,
+      depth: depth + 1
+    }%>
+  <% end %>
+<% elsif query["type"] == SqlAssess::Parsers::Where::Type::OR %>
+  <% query["clauses"].each_with_index do |clause, i| %>
+    <% if i != 0 %>
+      <div class="<%= class_name %> py-2"><span class="font-weight-bold">OR</span></div>
+    <% end %>
+    <%= render partial: "where", locals: {
+      query: clause,
+      depth: depth + 1
+    }%>
+  <% end %>
+<% else %>
+  <div class="<%= class_name %>">
+    <pre class="d-inline"><code class="d-inline"><%= query["condition"] %></code></pre>
+  </div>
+<% end %>

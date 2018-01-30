@@ -18,5 +18,20 @@
       <td><pre><code><%= @submission.metadata["order_by"]["student_order_by"] %></code></pre></td>
       <td><pre><code><%= @submission.metadata["order_by"]["instructor_order_by"] %></code></pre></td>
     </tr>
+    <tr>
+      <td>Where</td>
+      <td>
+        <%= render partial: "where", locals: {
+          query: @submission.metadata["where"]["student_where"],
+          depth: 0
+        } %>
+      </td>
+            <td>
+        <%= render partial: "where", locals: {
+          query: @submission.metadata["where"]["instructor_where"],
+          depth: 0
+        } %>
+      </td>
+    </tr>
   </tbody>
 </table>
