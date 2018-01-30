@@ -1,0 +1,17 @@
+// Repeat function obtained from
+// https: //stackoverflow.com/questions/38712106/repeat-dots-in-less-sass-for-content-property
+@function repeat($character, $n) {
+  $c: "";
+  @for $i from 1 through $n {
+    $c: $c + $character;
+  }
+  @return $c;
+}
+
+@for $i from 0 through 10 {
+  .where-clause-depth-#{$i}::before {
+    content: repeat('··', $i + 1);
+    margin-right: 4px;
+    color: grey;
+  }
+}
