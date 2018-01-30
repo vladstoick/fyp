@@ -1,8 +1,10 @@
 @import "~bootstrap/scss/bootstrap.scss";
 @import "highlight.js/styles/default.css";
+@import "codemirror/lib/codemirror.css";
 
 #bodyContainer {
   margin-top: 10px;
 }
 
-@import "submissions/where"
+@import "submissions/where";
+@import "code-editor";

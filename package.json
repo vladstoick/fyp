@@ -5,6 +5,7 @@
     "@rails/webpacker": "^3.0.2",
     "babel-preset-react": "^6.24.1",
     "bootstrap": "4.0.0-beta.2",
+    "codemirror": "^5.34.0",
     "highlight.js": "^9.12.0",
     "jquery": "^3.2.1",
     "popper.js": "^1.12.9",

@@ -8,8 +8,5 @@
 // layout file, like app/views/layouts/application.html.erb
 import "./../styles/main.scss";
 import 'bootstrap';
-import highlight from 'highlight.js';
-
-highlight.initHighlightingOnLoad();
-
-console.log('Hello World from Webpacker');
+import './highlight';
+import './codeEditor';
