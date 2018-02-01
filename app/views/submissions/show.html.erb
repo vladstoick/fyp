@@ -14,9 +14,19 @@
       <td><pre><code><%= @submission.metadata["columns"]["instructor_columns"] %></code></pre></td>
     </tr>
     <tr>
-      <td>Order by</td>
-      <td><pre><code><%= @submission.metadata["order_by"]["student_order_by"] %></code></pre></td>
-      <td><pre><code><%= @submission.metadata["order_by"]["instructor_order_by"] %></code></pre></td>
+      <td>Tables</td>
+      <td>
+        <%= render partial: "tables", locals: {
+          tables: @submission.metadata["tables"]["student_tables"],
+          depth: 0
+        } %>
+      </td>
+      <td>
+        <%= render partial: "tables", locals: {
+          tables: @submission.metadata["tables"]["instructor_tables"],
+          depth: 0
+        } %>
+      </td>
     </tr>
     <tr>
       <td>Where</td>
@@ -32,6 +42,11 @@
           depth: 0
         } %>
       </td>
+    </tr>
+        <tr>
+      <td>Order by</td>
+      <td><pre><code><%= @submission.metadata["order_by"]["student_order_by"] %></code></pre></td>
+      <td><pre><code><%= @submission.metadata["order_by"]["instructor_order_by"] %></code></pre></td>
     </tr>
   </tbody>
 </table>
