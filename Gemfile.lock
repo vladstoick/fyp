@@ -1,9 +1,11 @@
 GIT
   remote: git@github.com:vladstoick/fyp_sql_assess.git
-  revision: 427a81d57bbf47aea904f3143be7d3db2b494947
+  revision: bc52f9d53d98d5737d819e337286c55e198b1870
   specs:
     sql_assess (0.1.0)
+      activesupport
       mysql2
+      pg_query
       sql-parser
 
 GIT
@@ -97,6 +99,7 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    json (2.1.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     letter_opener (1.4.1)
@@ -120,6 +123,8 @@ GEM
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
+    pg_query (1.0.0)
+      json (>= 1.8, < 3)
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
