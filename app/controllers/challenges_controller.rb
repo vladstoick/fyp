@@ -1,24 +1,17 @@
 class ChallengesController < ApplicationController
   before_action :load_challenge, except: %i[new create index]
 
-  def new
-    @challenge = Challenge.new
+  def index
+    authorize Challenge
+    @challenges = Challenge.all
   end
 
-  def create
-    @challenge = Challenge.new(challenge_params)
-
-    if @challenge.save
-      flash[:success] = 'Sucesfully created'
-      redirect_to challenge_path(
-        id: @challenge
-      )
-    else
-      render :new
-    end
+  def show
+    authorize @challenge
   end
 
   def edit
+    authorize @challenge
   end
 
   def update
@@ -32,11 +25,23 @@ class ChallengesController < ApplicationController
     end
   end
 
-  def show
+  def new
+    authorize Challenge
+    @challenge = Challenge.new
   end
 
-  def index
-    @challenges = Challenge.all
+  def create
+    authorize Challenge
+    @challenge = Challenge.new(challenge_params)
+
+    if @challenge.save
+      flash[:success] = 'Sucesfully created'
+      redirect_to challenge_path(
+        id: @challenge
+      )
+    else
+      render :new
+    end
   end
 
   private

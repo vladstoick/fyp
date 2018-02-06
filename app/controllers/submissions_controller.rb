@@ -6,17 +6,26 @@ class SubmissionsController < ApplicationController
       challenge_id: @challenge.id,
       id: params.require(:id),
     )
+    authorize @submission
   end
 
-  def new; end
+  def new
+    @submission = Submission.new(
+      challenge_id: @challenge.id
+    )
+
+    authorize @submission
+  end
 
   def create
     sql_query = params.require(:solution)
 
     submission = Submission.create!(
       sql_query: sql_query,
-      challenge_id: @challenge.id,
+      challenge_id: @challenge.id
     )
+
+    authorize submission
 
     redirect_to challenge_submission_path(
       challenge_id: @challenge.id,

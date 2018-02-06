@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates_inclusion_of :role, in: %w[admin student]
+
+  def admin?
+    role == "admin"
+  end
 end
