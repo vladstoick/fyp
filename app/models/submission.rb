@@ -17,5 +17,6 @@ class Submission < ApplicationRecord
 
     self.metadata = result.attributes
     self.success = result.success
+    self.grade = result.grade
   end
 end
