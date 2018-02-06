@@ -1,0 +1,4 @@
+<% active_class = current_page?(path) ? "active" : "" %>
+<li class="nav-item <%= active_class %>">
+  <%= link_to name, path, class: "nav-link" %>
+</li>

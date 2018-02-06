@@ -1,3 +1,9 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Challenges</li>
+  </ol>
+</nav>
+
 <table class="table">
   <thead>
     <tr>
@@ -19,3 +25,5 @@
     <% end %>
   </tbody>
 </table>
+
+<%= link_to "Create new challenge", new_challenge_path, class: "btn btn-primary" %>

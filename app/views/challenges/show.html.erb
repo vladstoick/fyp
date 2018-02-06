@@ -1,6 +1,9 @@
-<h1><%= @challenge.title %></h1>
-
-<hr>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Challenges", challenges_path%></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @challenge.title %></li>
+  </ol>
+</nav>
 
 <h3>Content</h3>
 <%= @challenge.content %>

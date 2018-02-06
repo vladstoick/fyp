@@ -1,4 +1,9 @@
-<h1>Create a new challenge</h1>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Challenges", challenges_path%></li>
+    <li class="breadcrumb-item active" aria-current="page">New Challenge</li>
+  </ol>
+</nav>
 
 <%= bootstrap_form_for @challenge do |f| %>
   <%= render partial: "form_fields", locals: { f: f } %>
