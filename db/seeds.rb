@@ -8,7 +8,8 @@
 
 User.create!(
   email: 'admin@example.com',
-  password: 'test123'
+  password: 'test123',
+  role: 'admin'
 )
 
 User.create!(
