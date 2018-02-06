@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "/", to: "root#index"
+  get "/", to: "root#index", as: :root
 
   devise_for :users
 
