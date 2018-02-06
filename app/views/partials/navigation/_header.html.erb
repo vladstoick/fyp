@@ -18,15 +18,22 @@
       </ul>
       <div class="ul navbar-nav">
         <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to(
-              "Sign out",
-              users_sign_out_path,
-              class: "nav-link",
-            ) %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= current_user.email %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="userDropdown">
+              <p class="dropdown-header">Role: <%= current_user.role.capitalize %></p>
+              <div class="dropdown-divider"></div>
+              <%= link_to(
+                "Sign out",
+                users_sign_out_path,
+                class: "dropdown-item",
+              ) %>
+            </div>
           </li>
         <% else %>
-           <li class="nav-item">
+          <li class="nav-item">
             <%= link_to(
               "Sign in",
               new_user_session_path,

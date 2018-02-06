@@ -38,6 +38,8 @@ gem "bootstrap_form",
     git: "https://github.com/bootstrap-ruby/rails-bootstrap-forms.git",
     branch: "master"
 
+gem 'pundit'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
