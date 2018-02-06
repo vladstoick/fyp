@@ -12,18 +12,10 @@ class SubmissionsController < ApplicationController
 
   def create
     sql_query = params.require(:solution)
-    result = SqlAssess::Assesor.new.assess(
-      create_schema_sql_query: @challenge.sql_schema,
-      instructor_sql_query: @challenge.sql_correct_query,
-      seed_sql_query: @challenge.sql_seed,
-      student_sql_query: sql_query
-    )
 
     submission = Submission.create!(
       sql_query: sql_query,
-      success: result.success,
       challenge_id: @challenge.id,
-      metadata: result.attributes,
     )
 
     redirect_to challenge_submission_path(
