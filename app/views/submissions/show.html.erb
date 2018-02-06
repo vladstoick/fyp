@@ -1,3 +1,13 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Challenges", challenges_path%></li>
+    <li class="breadcrumb-item" aria-current="page">
+      <%= link_to @challenge.title, new_challenge_submission_path(challenge: @challenge) %>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Submission result</li>
+  </ol>
+</nav>
+
 <h1>Summary</h1>
 <table class="table">
   <tbody>
