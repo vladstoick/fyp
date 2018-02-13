@@ -8,9 +8,7 @@
 <pre><code class="sql"><%= @challenge.sql_schema %></code></pre>
 <hr>
 
-<%= form_tag challenge_submissions_path do %>
-  <div class="form-group">
-    <%= text_field_tag :solution, nil, class: "form-control code-sql" %>
-  </div>
-  <%= submit_tag "Submit", class: "btn btn-primary" %>
+<%= bootstrap_form_for [@challenge, @submission] do |f| %>
+  <%= f.text_field :sql_query, class: "code-sql" %>
+  <%= f.submit "Submit", class: "btn btn-primary"%>
 <% end %>

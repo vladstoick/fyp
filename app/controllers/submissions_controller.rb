@@ -18,19 +18,22 @@ class SubmissionsController < ApplicationController
   end
 
   def create
-    sql_query = params.require(:solution)
-
-    submission = Submission.create!(
-      sql_query: sql_query,
+    @submission = Submission.new(
+      sql_query: params.require(:submission).require(:sql_query),
       challenge_id: @challenge.id
     )
 
-    authorize submission
+    authorize @submission
 
-    redirect_to challenge_submission_path(
-      challenge_id: @challenge.id,
-      id: submission.id
-    )
+    if @submission.save
+      flash[:success] = 'Sucesfully submitted!'
+      redirect_to challenge_submission_path(
+        challenge_id: @challenge.id,
+        id: @submission.id
+      )
+    else
+      render :new
+    end
   end
 
   private
