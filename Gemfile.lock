@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:vladstoick/fyp_sql_assess.git
-  revision: b2ae2fc00ac8044c036b5c52cf997bfa9a9a6424
+  revision: edbcbaed761d2ca4e5a30be8b0485a5bcb9ff933
   specs:
     sql_assess (0.1.0)
       activesupport
@@ -94,7 +94,7 @@ GEM
     ffi (1.9.18)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    i18n (0.9.3)
+    i18n (0.9.4)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
