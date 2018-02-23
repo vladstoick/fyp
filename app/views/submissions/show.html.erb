@@ -86,5 +86,18 @@
         } %>
       </td>
     </tr>
+    <tr>
+      <td>Distinct filter</td>
+      <td>
+        <%= render partial: "distinct_filter", locals: {
+          distinct_filter: @submission.metadata["distinct_filter"]["student_distinct_filter"],
+        } %>
+      </td>
+      <td>
+        <%= render partial: "distinct_filter", locals: {
+          distinct_filter: @submission.metadata["distinct_filter"]["instructor_distinct_filter"],
+        } %>
+      </td>
+    </tr>
   </tbody>
 </table>
