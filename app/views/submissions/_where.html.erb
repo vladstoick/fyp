@@ -1,6 +1,6 @@
 <% class_name = "where-clause-depth-#{depth}" %>
 <% if query == {} %>
-  <pre class="d-inline"><code class="d-inline">[]</code></pre>
+  No where conditions
 <% elsif query["type"] == SqlAssess::Parsers::Where::Type::AND %>
   <% query["clauses"].each_with_index do |clause, i| %>
     <% if i != 0 %>

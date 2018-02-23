@@ -34,43 +34,57 @@
   <tbody>
     <tr>
       <td>Columns</td>
-      <td><pre><code><%= @submission.metadata["columns"]["student_columns"] %></code></pre></td>
-      <td><pre><code><%= @submission.metadata["columns"]["instructor_columns"] %></code></pre></td>
+      <td>
+        <%= render partial: "columns", locals: {
+          columns: @submission.metadata["columns"]["student_columns"],
+        } %>
+      </td>
+      <td>
+        <%= render partial: "columns", locals: {
+          columns: @submission.metadata["columns"]["instructor_columns"],
+        } %>
+      </td>
     </tr>
     <tr>
       <td>Tables</td>
       <td>
         <%= render partial: "tables", locals: {
           tables: @submission.metadata["tables"]["student_tables"],
-          depth: 0
         } %>
       </td>
       <td>
         <%= render partial: "tables", locals: {
           tables: @submission.metadata["tables"]["instructor_tables"],
-          depth: 0
         } %>
       </td>
     </tr>
     <tr>
       <td>Where</td>
       <td>
-        <%= render partial: "where", locals: {
+      <%= render partial: "where", locals: {
           query: @submission.metadata["where"]["student_where"],
           depth: 0
         } %>
       </td>
-            <td>
+      <td>
         <%= render partial: "where", locals: {
           query: @submission.metadata["where"]["instructor_where"],
           depth: 0
         } %>
       </td>
     </tr>
-        <tr>
+    <tr>
       <td>Order by</td>
-      <td><pre><code><%= @submission.metadata["order_by"]["student_order_by"] %></code></pre></td>
-      <td><pre><code><%= @submission.metadata["order_by"]["instructor_order_by"] %></code></pre></td>
+      <td>
+        <%= render partial: "order_by", locals: {
+          order_by: @submission.metadata["order_by"]["student_order_by"],
+        } %>
+      </td>
+      <td>
+        <%= render partial: "order_by", locals: {
+          order_by: @submission.metadata["order_by"]["instructor_order_by"],
+        } %>
+      </td>
     </tr>
   </tbody>
 </table>
