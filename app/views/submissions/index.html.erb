@@ -1,0 +1,26 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Challenges", challenges_path%></li>
+    <li class="breadcrumb-item" aria-current="page">
+      <%= link_to @challenge.title, challenge_path(@challenge) %>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Submissions</li>
+  </ol>
+</nav>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Grade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @submissions.each do |submission| %>
+      <tr>
+        <td><%= submission.user.email %></td>
+        <td><%= submission.grade %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

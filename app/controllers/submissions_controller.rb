@@ -1,6 +1,12 @@
 class SubmissionsController < ApplicationController
   before_action :load_challenge
 
+  def index
+    @submissions = @challenge.submissions
+
+    authorize @submissions
+  end
+
   def show
     @submission = Submission.find_by!(
       challenge_id: @challenge.id,
@@ -20,7 +26,8 @@ class SubmissionsController < ApplicationController
   def create
     @submission = Submission.new(
       sql_query: params.require(:submission).require(:sql_query),
-      challenge_id: @challenge.id
+      challenge_id: @challenge.id,
+      user_id: current_user.id
     )
 
     authorize @submission

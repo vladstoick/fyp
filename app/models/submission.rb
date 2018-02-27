@@ -2,6 +2,7 @@ class Submission < ApplicationRecord
   validates_presence_of :sql_query
 
   belongs_to :challenge, class_name: "Challenge"
+  belongs_to :user, class_name: "User"
 
   validate :compile_sql
 

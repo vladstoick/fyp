@@ -44,6 +44,10 @@
   </table>
 <% end %>
 
-<hr>
-
 <%= link_to "Edit", edit_challenge_path(id: @challenge), class: "btn btn-primary" %>
+<%= link_to(
+  "View Submissions",
+  challenge_submissions_path(challenge_id: @challenge.id),
+  class: "btn"
+) %>
+<hr>
