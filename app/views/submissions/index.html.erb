@@ -13,6 +13,7 @@
     <tr>
       <th>Email</th>
       <th>Grade</th>
+      <th>View submission</th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +21,12 @@
       <tr>
         <td><%= submission.user.email %></td>
         <td><%= submission.grade %></td>
+        <td>
+          <%= link_to(
+            "View submission",
+            [@challenge, submission]
+          ) %>
+        </td>
       </tr>
     <% end %>
   </tbody>
