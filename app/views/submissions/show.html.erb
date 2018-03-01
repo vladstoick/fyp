@@ -33,6 +33,7 @@
       <th>Attribute</th>
       <th>Submission</th>
       <th>Correct</th>
+      <th>Match</th>
     </tr>
   </thead>
   <tbody>
@@ -48,6 +49,7 @@
           columns: @submission.metadata["columns"]["instructor_columns"],
         } %>
       </td>
+      <td><%= @submission.attribute_grades["columns"].to_d * 100.0 %>%</td>
     </tr>
     <tr>
       <td>Tables</td>
@@ -61,6 +63,7 @@
           tables: @submission.metadata["tables"]["instructor_tables"],
         } %>
       </td>
+      <td>NOT YET IMPLEMENTED</td>
     </tr>
     <tr>
       <td>Where</td>
@@ -76,6 +79,7 @@
           depth: 0
         } %>
       </td>
+      <td><%= @submission.attribute_grades["where"].to_d * 100.0 %>%</td>
     </tr>
     <tr>
       <td>Order by</td>
@@ -89,6 +93,7 @@
           order_by: @submission.metadata["order_by"]["instructor_order_by"],
         } %>
       </td>
+      <td><%= @submission.attribute_grades["order_by"].to_d * 100.0 %>%</td>
     </tr>
     <tr>
       <td>Distinct filter</td>
@@ -102,6 +107,7 @@
           distinct_filter: @submission.metadata["distinct_filter"]["instructor_distinct_filter"],
         } %>
       </td>
+      <td><%= @submission.attribute_grades["distinct_filter"].to_d * 100.0 %>%</td>
     </tr>
     <tr>
       <td>Limit</td>
@@ -115,6 +121,7 @@
           limit: @submission.metadata["limit"]["instructor_limit"],
         } %>
       </td>
+      <td><%= @submission.attribute_grades["limit"].to_d * 100.0 %>%</td>
     </tr>
   </tbody>
 </table>
