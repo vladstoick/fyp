@@ -19,6 +19,10 @@
       <th>Grade</th>
       <td><%= @submission.grade %> / 100.00</td>
     </tr>
+    <tr>
+      <th>Query</th>
+      <td><pre><code class="mysql"><%= @submission.sql_query %></code></pre></td>
+    </tr>
   </tbody>
 </table>
 
@@ -96,6 +100,19 @@
       <td>
         <%= render partial: "distinct_filter", locals: {
           distinct_filter: @submission.metadata["distinct_filter"]["instructor_distinct_filter"],
+        } %>
+      </td>
+    </tr>
+    <tr>
+      <td>Limit</td>
+      <td>
+        <%= render partial: "limit", locals: {
+          limit: @submission.metadata["limit"]["student_limit"],
+        } %>
+      </td>
+      <td>
+        <%= render partial: "limit", locals: {
+          limit: @submission.metadata["limit"]["instructor_limit"],
         } %>
       </td>
     </tr>
