@@ -33,7 +33,7 @@ SQL
 INSERT INTO table1 (id, name) VALUES (1, "Vlad"), (2, "Michael"), (3, "Jordan");
 SQL
   ),
-  title: "Seed Challenge #1"
+  title: "Seed Challenge #1 - Simple query"
 )
 
 Submission.create!(
@@ -66,6 +66,13 @@ Submission.create!(
   sql_query: "SELECT DISTINCT table1.id from table1 ORDER BY table1.id DESC"
 )
 
+Submission.create!(
+  user: student,
+  challenge: challenge_1,
+  sql_query: "SELECT table1.name from table1"
+)
+
+
 Challenge.create!(
   sql_schema: (
 <<-SQL
@@ -84,5 +91,5 @@ INSERT INTO table1 (id, name) VALUES (1, "Vlad"), (2, "Michael"), (3, "Jordan");
 INSERT INTO table2 (id, price, t1_id) VALUES (6, 10, 1), (7, 11, 2), (8, 111, 3), (9, 111, 3);
 SQL
   ),
-  title: "Seed Challenge #2"
+  title: "Seed Challenge #2 - Join Table"
 )
