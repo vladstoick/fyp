@@ -73,7 +73,7 @@ Submission.create!(
 )
 
 
-Challenge.create!(
+challenge_2 = Challenge.create!(
   sql_schema: (
 <<-SQL
 CREATE TABLE table1(id integer, name varchar(255));
@@ -82,7 +82,7 @@ SQL
   ),
   sql_correct_query: (
 <<-SQL
-SELECT table1.id from table1 JOIN table2 on table2.t1_id = table1.id
+SELECT table1.id from table1 LEFT JOIN table2 on table2.t1_id = table1.id
 SQL
   ),
   sql_seed: (
@@ -92,4 +92,28 @@ INSERT INTO table2 (id, price, t1_id) VALUES (6, 10, 1), (7, 11, 2), (8, 111, 3)
 SQL
   ),
   title: "Seed Challenge #2 - Join Table"
+)
+
+Submission.create!(
+  user: student,
+  challenge: challenge_2,
+  sql_query: "SELECT table1.name from table1"
+)
+
+Submission.create!(
+  user: student,
+  challenge: challenge_2,
+  sql_query: "SELECT table1.name from table1 RIGHT JOIN table2 on table2.t1_id = table1.id"
+)
+
+Submission.create!(
+  user: student,
+  challenge: challenge_2,
+  sql_query: "SELECT table1.id from table1 RIGHT JOIN table2 on table2.t1_id = table1.id"
+)
+
+Submission.create!(
+  user: student,
+  challenge: challenge_2,
+  sql_query: "SELECT table1.id from table1 RIGHT JOIN table2 on table2.t1_id = table1.id"
 )
