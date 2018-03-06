@@ -15,6 +15,14 @@ class SubmissionsController < ApplicationController
     authorize @submission
   end
 
+  def report
+    @submission = Submission.find_by!(
+      challenge_id: @challenge.id,
+      id: params.require(:id),
+    )
+    authorize @submission
+  end
+
   def new
     @submission = Submission.new(
       challenge_id: @challenge.id

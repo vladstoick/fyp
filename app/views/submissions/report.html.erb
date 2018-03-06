@@ -1,0 +1,127 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Challenges", challenges_path%></li>
+    <li class="breadcrumb-item" aria-current="page">
+      <%= link_to @challenge.title, challenge_submissions_path(challenge: @challenge) %>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Submission result</li>
+  </ol>
+</nav>
+
+<h1>Summary</h1>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Success</th>
+      <td><%= @submission.success %></td>
+    </tr>
+    <tr>
+      <th>Grade</th>
+      <td><%= @submission.grade %> / 100.00</td>
+    </tr>
+    <tr>
+      <th>Query</th>
+      <td><pre><code class="mysql"><%= @submission.sql_query %></code></pre></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>Comparison of elements</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Submission</th>
+      <th>Correct</th>
+      <th>Match</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Columns</td>
+      <td>
+        <%= render partial: "columns", locals: {
+          columns: @submission.metadata["columns"]["student_columns"],
+        } %>
+      </td>
+      <td>
+        <%= render partial: "columns", locals: {
+          columns: @submission.metadata["columns"]["instructor_columns"],
+        } %>
+      </td>
+      <td><%= @submission.attribute_grades["columns"].to_d * 100.0 %>%</td>
+    </tr>
+    <tr>
+      <td>Tables</td>
+      <td>
+        <%= render partial: "tables", locals: {
+          tables: @submission.metadata["tables"]["student_tables"],
+        } %>
+      </td>
+      <td>
+        <%= render partial: "tables", locals: {
+          tables: @submission.metadata["tables"]["instructor_tables"],
+        } %>
+      </td>
+      <td>NOT YET IMPLEMENTED</td>
+    </tr>
+    <tr>
+      <td>Where</td>
+      <td>
+      <%= render partial: "where", locals: {
+          query: @submission.metadata["where"]["student_where"],
+          depth: 0
+        } %>
+      </td>
+      <td>
+        <%= render partial: "where", locals: {
+          query: @submission.metadata["where"]["instructor_where"],
+          depth: 0
+        } %>
+      </td>
+      <td><%= @submission.attribute_grades["where"].to_d * 100.0 %>%</td>
+    </tr>
+    <tr>
+      <td>Order by</td>
+      <td>
+        <%= render partial: "order_by", locals: {
+          order_by: @submission.metadata["order_by"]["student_order_by"],
+        } %>
+      </td>
+      <td>
+        <%= render partial: "order_by", locals: {
+          order_by: @submission.metadata["order_by"]["instructor_order_by"],
+        } %>
+      </td>
+      <td><%= @submission.attribute_grades["order_by"].to_d * 100.0 %>%</td>
+    </tr>
+    <tr>
+      <td>Distinct filter</td>
+      <td>
+        <%= render partial: "distinct_filter", locals: {
+          distinct_filter: @submission.metadata["distinct_filter"]["student_distinct_filter"],
+        } %>
+      </td>
+      <td>
+        <%= render partial: "distinct_filter", locals: {
+          distinct_filter: @submission.metadata["distinct_filter"]["instructor_distinct_filter"],
+        } %>
+      </td>
+      <td><%= @submission.attribute_grades["distinct_filter"].to_d * 100.0 %>%</td>
+    </tr>
+    <tr>
+      <td>Limit</td>
+      <td>
+        <%= render partial: "limit", locals: {
+          limit: @submission.metadata["limit"]["student_limit"],
+        } %>
+      </td>
+      <td>
+        <%= render partial: "limit", locals: {
+          limit: @submission.metadata["limit"]["instructor_limit"],
+        } %>
+      </td>
+      <td><%= @submission.attribute_grades["limit"].to_d * 100.0 %>%</td>
+    </tr>
+  </tbody>
+</table>

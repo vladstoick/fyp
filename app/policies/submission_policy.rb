@@ -6,4 +6,8 @@ class SubmissionPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def report?
+    user.admin?
+  end
 end

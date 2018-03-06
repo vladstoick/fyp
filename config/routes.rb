@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   end
 
   resources :challenges do
-    resources :submissions
+    resources :submissions do
+      member do
+        get "report"
+      end
+    end
   end
 end
