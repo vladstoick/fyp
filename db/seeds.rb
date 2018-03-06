@@ -103,17 +103,11 @@ Submission.create!(
 Submission.create!(
   user: student,
   challenge: challenge_2,
-  sql_query: "SELECT table1.name from table1 RIGHT JOIN table2 on table2.t1_id = table1.id"
+  sql_query: "SELECT table1.name from table1 LEFT JOIN table2 on table2.t1_id = table1.id"
 )
 
 Submission.create!(
   user: student,
   challenge: challenge_2,
-  sql_query: "SELECT table1.id from table1 RIGHT JOIN table2 on table2.t1_id = table1.id"
-)
-
-Submission.create!(
-  user: student,
-  challenge: challenge_2,
-  sql_query: "SELECT table1.id from table1 RIGHT JOIN table2 on table2.t1_id = table1.id"
+  sql_query: "SELECT table2.t1_id from table1 LEFT JOIN table2 on table2.t1_id = table1.id"
 )
