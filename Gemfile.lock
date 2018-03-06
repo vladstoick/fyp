@@ -1,11 +1,12 @@
 GIT
   remote: git@github.com:vladstoick/fyp_sql_assess.git
-  revision: fc0fc3173a9d0ab14ea250205c5a0bdb25e8ec6f
+  revision: 870747b9e3670adbdf62838440c3dd2e79bde9a2
   specs:
     sql_assess (0.1.0)
       activesupport
       mysql2
       pg_query
+      rgl
       sql-parser-vlad (~> 0.0.5)
 
 GIT
@@ -101,6 +102,7 @@ GEM
       multi_json (>= 1.2)
     launchy (2.4.3)
       addressable (~> 2.3)
+    lazy_priority_queue (0.1.1)
     letter_opener (1.4.1)
       launchy (~> 2.2)
     listen (3.1.5)
@@ -166,6 +168,9 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
+    rgl (0.5.3)
+      lazy_priority_queue (~> 0.1.0)
+      stream (~> 0.5.0)
     rspec-core (3.7.0)
       rspec-support (~> 3.7.0)
     rspec-expectations (3.7.0)
@@ -214,6 +219,7 @@ GEM
     sql-parser-vlad (0.0.5)
       racc (= 1.4.12)
     sqlite3 (1.3.13)
+    stream (0.5)
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
