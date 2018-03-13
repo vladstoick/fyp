@@ -111,3 +111,45 @@ Submission.create!(
   challenge: challenge_2,
   sql_query: "SELECT table2.t1_id from table1 LEFT JOIN table2 on table2.t1_id = table1.id"
 )
+
+challenge_3 = Challenge.create!(
+  sql_schema: (
+<<-SQL
+CREATE TABLE table1(id integer, name varchar(255));
+CREATE TABLE table2(id integer, price integer, t1_id integer);
+SQL
+  ),
+  sql_correct_query: (
+<<-SQL.squish
+  SELECT SUM(table2.price)
+  FROM
+    table1
+    LEFT JOIN table2 on table2.t1_id = table1.id
+  WHERE
+    table1.id = 4 OR table2.price < 1
+SQL
+  ),
+  sql_seed: (
+<<-SQL
+INSERT INTO table1 (id, name) VALUES (1, "Vlad"), (2, "Michael"), (3, "Jordan");
+INSERT INTO table2 (id, price, t1_id) VALUES (6, 10, 1), (7, 11, 2), (8, 111, 3), (9, 111, 3);
+SQL
+  ),
+  title: "Seed Challenge #3 - Complicated query"
+)
+
+Submission.create!(
+  user: student,
+  challenge: challenge_3,
+  sql_query: (
+<<-SQL.squish
+SELECT SUM(table2.price), table1.id
+FROM
+  table1
+  LEFT JOIN table2 on table2.t1_id = table1.id
+WHERE
+  table1.id = 4 OR table2.price < 1
+GROUP BY 2
+SQL
+  )
+)
