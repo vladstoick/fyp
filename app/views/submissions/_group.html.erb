@@ -1,0 +1,7 @@
+<% group.each do |group_column| %>
+  <pre><code class="sql"><%= group_column %></code></pre>
+<% end %>
+
+<% if group.empty? %>
+  No group clause
+<% end %>

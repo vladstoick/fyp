@@ -63,7 +63,7 @@
           tables: @submission.metadata["tables"]["instructor_tables"],
         } %>
       </td>
-      <td>NOT YET IMPLEMENTED</td>
+      <td><%= @submission.attribute_grades["tables"].to_d * 100.0 %>%</td>
     </tr>
     <tr>
       <td>Where</td>
@@ -122,6 +122,20 @@
         } %>
       </td>
       <td><%= @submission.attribute_grades["limit"].to_d * 100.0 %>%</td>
+    </tr>
+    <tr>
+      <td>Group</td>
+      <td>
+        <%= render partial: "group", locals: {
+            group: @submission.metadata["group"]["student_group"],
+          } %>
+      </td>
+      <td>
+        <%= render partial: "group", locals: {
+          group: @submission.metadata["group"]["instructor_group"],
+        } %>
+      </td>
+      <td><%= @submission.attribute_grades["group"].to_d * 100.0 %>%</td>
     </tr>
   </tbody>
 </table>
