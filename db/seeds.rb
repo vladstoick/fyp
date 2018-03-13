@@ -150,6 +150,7 @@ FROM
 WHERE
   table1.id = 4 OR table2.price < 1
 GROUP BY 2
+ORDER BY table1.id DESC
 SQL
   )
 )

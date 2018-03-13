@@ -1,3 +1,7 @@
 <% order_by.each do |rule| %>
   <pre><code class="sql"><%= rule %></code></pre>
 <% end %>
+
+<% if order_by.empty? %>
+  No order by rule
+<% end %>
