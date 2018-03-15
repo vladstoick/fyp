@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180315104459) do
+ActiveRecord::Schema.define(version: 20180315180736) do
 
   create_table "challenges", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "content"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20180315104459) do
     t.datetime "updated_at", null: false
     t.text "sql_query"
     t.boolean "success"
-    t.integer "challenge_id"
+    t.bigint "challenge_id"
     t.json "metadata"
     t.float "grade", limit: 53
     t.bigint "user_id"
@@ -58,4 +58,7 @@ ActiveRecord::Schema.define(version: 20180315104459) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "challenges", "users"
+  add_foreign_key "submissions", "challenges"
+  add_foreign_key "submissions", "users"
 end
