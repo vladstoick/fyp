@@ -8,8 +8,6 @@
   </ol>
 </nav>
 
-<% if @submission.success %>
-  <p>Congratulations! Your solution is correct</p>
-<% else %>
-  <p>Looks like your solution is not correct. <b>not yet</b></p>
-<% end %>
+<p>
+  <%= @submission.message %>
+</p>

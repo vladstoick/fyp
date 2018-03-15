@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180301115554) do
+ActiveRecord::Schema.define(version: 20180315104459) do
 
   create_table "challenges", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20180301115554) do
     t.float "grade", limit: 53
     t.bigint "user_id"
     t.json "attribute_grades", null: false
+    t.string "message"
     t.index ["challenge_id"], name: "index_submissions_on_challenge_id"
     t.index ["user_id"], name: "index_submissions_on_user_id"
   end

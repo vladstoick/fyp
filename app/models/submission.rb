@@ -20,6 +20,7 @@ class Submission < ApplicationRecord
     self.success = result.success
     self.grade = result.grade
     self.attribute_grades = result.attributes_grade
+    self.message = result.message
   rescue SqlAssess::DatabaseQueryExecutionFailed => exception
     errors.add(:sql_query, exception.message)
   end
