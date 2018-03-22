@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
-gem 'mysql2'
+gem 'mysql2', '~> 0.4.10'
 
 gem "bootstrap_form",
     git: "https://github.com/bootstrap-ruby/rails-bootstrap-forms.git",
@@ -46,6 +46,10 @@ gem 'pundit'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+end
+
+group :test do
+  gem "factory_bot_rails", "~> 4.0"
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'

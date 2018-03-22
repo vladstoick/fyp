@@ -41,7 +41,7 @@ class SubmissionsController < ApplicationController
     authorize @submission
 
     if @submission.save
-      flash[:success] = 'Sucesfully submitted!'
+      flash[:success] = 'Successfully submitted!'
       redirect_to challenge_submission_path(
         challenge_id: @challenge.id,
         id: @submission.id

@@ -16,7 +16,7 @@ class ChallengesController < ApplicationController
 
   def update
     if @challenge.update(challenge_params)
-      flash[:success] = 'Sucesfully Updated'
+      flash[:success] = 'Successfully Updated'
       redirect_to challenge_path(
         id: @challenge
       )
@@ -35,7 +35,7 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.new(challenge_params)
 
     if @challenge.save
-      flash[:success] = 'Sucesfully created'
+      flash[:success] = 'Successfully created'
       redirect_to challenge_path(
         id: @challenge
       )
