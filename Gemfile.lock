@@ -1,13 +1,12 @@
 GIT
   remote: git@github.com:vladstoick/fyp_sql_assess.git
-  revision: dfa65b533ffcc4484c6c50d32e9cda1385e1bd10
+  revision: 84182de92d446c566b2129fbafe1b0c5ddc2178d
   specs:
     sql_assess (0.1.0)
       activesupport
       mysql2
-      pg_query
       rgl
-      sql-parser-vlad (~> 0.0.6)
+      sql-parser-vlad (~> 0.0.7)
 
 GIT
   remote: https://github.com/bootstrap-ruby/rails-bootstrap-forms.git
@@ -129,7 +128,6 @@ GEM
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
-    pg_query (1.0.1)
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -221,7 +219,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sql-parser-vlad (0.0.6)
+    sql-parser-vlad (0.0.7)
       racc (= 1.4.12)
     sqlite3 (1.3.13)
     stream (0.5)
