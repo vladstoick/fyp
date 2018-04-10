@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Challenge < ApplicationRecord
   validates_presence_of :sql_schema, :sql_correct_query, :sql_seed
   validate :compile_sql

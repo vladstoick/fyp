@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -105,7 +107,7 @@ Devise.setup do |config|
   # a value less than 10 in other environments. Note that, for bcrypt (the default
   # algorithm), the cost increases exponentially with the number of stretches (e.g.
   # a value of 20 is already extremely slow: approx. 60 seconds for 1 calculation).
-  config.stretches = Rails.env.test? ? 1 : 11
+  Rails.env.test? ? config.stretches = 1 : config.stretches = 11
 
   # Set up a pepper to generate the hashed password.
   # config.pepper = '7f45998a496d8602b3e7d575f38388cb89205da9b7d7dbf4b6379e5191edb20f3f36d6d5b2e1b3deb502e51ba02972fe3de8add98827e496b0a21cbac6ab817d'

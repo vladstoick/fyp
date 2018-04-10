@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  get "/", to: "root#index", as: :root
+  get '/', to: 'root#index', as: :root
 
   devise_for :users
 
@@ -11,7 +13,7 @@ Rails.application.routes.draw do
   resources :challenges do
     resources :submissions do
       member do
-        get "report"
+        get 'report'
       end
     end
   end
