@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Challenge < ApplicationRecord
-  validates_presence_of :sql_schema, :sql_correct_query, :sql_seed
+  validates_presence_of :sql_schema, :sql_correct_query, :sql_seed, :title, :content
   validate :compile_sql
 
   has_many :submissions, class_name: 'Submission'
