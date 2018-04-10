@@ -17,3 +17,6 @@ before_install:
   - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('') where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
   - sudo mysql_upgrade
   - sudo service mysql restart
+script:
+  - bin/rake db:setup RAILS_ENV=test
+  - bin/rake
