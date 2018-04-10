@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChallengesController < ApplicationController
   before_action :load_challenge, except: %i[new create index]
 
@@ -32,7 +34,7 @@ class ChallengesController < ApplicationController
 
   def create
     authorize Challenge
-    @challenge = Challenge.new(challenge_params)
+    @challenge = Challenge.new(challenge_params.merge(user: current_user))
 
     if @challenge.save
       flash[:success] = 'Successfully created'

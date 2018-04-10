@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SubmissionsController < ApplicationController
   before_action :load_challenge
 
@@ -10,7 +12,7 @@ class SubmissionsController < ApplicationController
   def show
     @submission = Submission.find_by!(
       challenge_id: @challenge.id,
-      id: params.require(:id),
+      id: params.require(:id)
     )
     authorize @submission
   end
@@ -18,7 +20,7 @@ class SubmissionsController < ApplicationController
   def report
     @submission = Submission.find_by!(
       challenge_id: @challenge.id,
-      id: params.require(:id),
+      id: params.require(:id)
     )
     authorize @submission
   end

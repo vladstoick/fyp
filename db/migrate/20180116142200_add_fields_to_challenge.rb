@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddFieldsToChallenge < ActiveRecord::Migration[5.1]
   def change
     add_column :challenges, :content, :text

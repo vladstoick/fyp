@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddForeignKey < ActiveRecord::Migration[5.1]
   def change
     change_column :challenges, :user_id, :bigint
