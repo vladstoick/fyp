@@ -1,5 +1,5 @@
 <% order_by.each do |rule| %>
-  <pre><code class="sql"><%= rule %></code></pre>
+  <pre><code class="sql"><%= rule["column"] %></code></pre>
 <% end %>
 
 <% if order_by.empty? %>

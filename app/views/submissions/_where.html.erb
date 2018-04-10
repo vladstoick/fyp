@@ -1,7 +1,7 @@
 <% class_name = "where-clause-depth-#{depth}" %>
 <% if query == {} %>
   No where conditions
-<% elsif query["type"] == SqlAssess::Parsers::Where::Type::AND %>
+<% elsif query["type"] =="AND" %>
   <% query["clauses"].each_with_index do |clause, i| %>
     <% if i != 0 %>
       <div class="<%= class_name %> py-2"><span class="font-weight-bold">AND</span></div>
@@ -12,7 +12,7 @@
       depth: depth + 1
     }%>
   <% end %>
-<% elsif query["type"] == SqlAssess::Parsers::Where::Type::OR %>
+<% elsif query["type"] == "OR"%>
   <% query["clauses"].each_with_index do |clause, i| %>
     <% if i != 0 %>
       <div class="<%= class_name %> py-2"><span class="font-weight-bold">OR</span></div>

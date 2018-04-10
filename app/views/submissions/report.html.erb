@@ -41,12 +41,12 @@
       <td>Columns</td>
       <td>
         <%= render partial: "columns", locals: {
-          columns: @submission.metadata["columns"]["student_columns"],
+          columns: @submission.metadata["student"]["columns"],
         } %>
       </td>
       <td>
         <%= render partial: "columns", locals: {
-          columns: @submission.metadata["columns"]["instructor_columns"],
+          columns: @submission.metadata["instructor"]["columns"],
         } %>
       </td>
       <td><%= @submission.attribute_grades["columns"].to_d * 100.0 %>%</td>
@@ -55,12 +55,12 @@
       <td>Tables</td>
       <td>
         <%= render partial: "tables", locals: {
-          tables: @submission.metadata["tables"]["student_tables"],
+          tables: @submission.metadata["student"]["tables"],
         } %>
       </td>
       <td>
         <%= render partial: "tables", locals: {
-          tables: @submission.metadata["tables"]["instructor_tables"],
+          tables: @submission.metadata["instructor"]["tables"],
         } %>
       </td>
       <td><%= @submission.attribute_grades["tables"].to_d * 100.0 %>%</td>
@@ -69,13 +69,13 @@
       <td>Where</td>
       <td>
       <%= render partial: "where", locals: {
-          query: @submission.metadata["where"]["student_where"],
+          query: @submission.metadata["student"]["where"],
           depth: 0
         } %>
       </td>
       <td>
         <%= render partial: "where", locals: {
-          query: @submission.metadata["where"]["instructor_where"],
+          query: @submission.metadata["instructor"]["where"],
           depth: 0
         } %>
       </td>
@@ -85,12 +85,12 @@
       <td>Order by</td>
       <td>
         <%= render partial: "order_by", locals: {
-          order_by: @submission.metadata["order_by"]["student_order_by"],
+          order_by: @submission.metadata["student"]["order_by"],
         } %>
       </td>
       <td>
         <%= render partial: "order_by", locals: {
-          order_by: @submission.metadata["order_by"]["instructor_order_by"],
+          order_by: @submission.metadata["instructor"]["order_by"],
         } %>
       </td>
       <td><%= @submission.attribute_grades["order_by"].to_d * 100.0 %>%</td>
@@ -99,12 +99,12 @@
       <td>Distinct filter</td>
       <td>
         <%= render partial: "distinct_filter", locals: {
-          distinct_filter: @submission.metadata["distinct_filter"]["student_distinct_filter"],
+          distinct_filter: @submission.metadata["student"]["distinct_filter"],
         } %>
       </td>
       <td>
         <%= render partial: "distinct_filter", locals: {
-          distinct_filter: @submission.metadata["distinct_filter"]["instructor_distinct_filter"],
+          distinct_filter: @submission.metadata["instructor"]["distinct_filter"],
         } %>
       </td>
       <td><%= @submission.attribute_grades["distinct_filter"].to_d * 100.0 %>%</td>
@@ -113,12 +113,12 @@
       <td>Limit</td>
       <td>
         <%= render partial: "limit", locals: {
-          limit: @submission.metadata["limit"]["student_limit"],
+          limit: @submission.metadata["student"]["limit"],
         } %>
       </td>
       <td>
         <%= render partial: "limit", locals: {
-          limit: @submission.metadata["limit"]["instructor_limit"],
+          limit: @submission.metadata["instructor"]["limit"],
         } %>
       </td>
       <td><%= @submission.attribute_grades["limit"].to_d * 100.0 %>%</td>
@@ -127,12 +127,12 @@
       <td>Group</td>
       <td>
         <%= render partial: "group", locals: {
-            group: @submission.metadata["group"]["student_group"],
+            group: @submission.metadata["student"]["group"],
           } %>
       </td>
       <td>
         <%= render partial: "group", locals: {
-          group: @submission.metadata["group"]["instructor_group"],
+          group: @submission.metadata["instructor"]["group"],
         } %>
       </td>
       <td><%= @submission.attribute_grades["group"].to_d * 100.0 %>%</td>

@@ -1,20 +1,20 @@
 GIT
-  remote: git@github.com:vladstoick/fyp_sql_assess.git
-  revision: 84182de92d446c566b2129fbafe1b0c5ddc2178d
-  specs:
-    sql_assess (0.1.0)
-      activesupport
-      mysql2
-      rgl
-      sql-parser-vlad (~> 0.0.7)
-
-GIT
   remote: https://github.com/bootstrap-ruby/rails-bootstrap-forms.git
   revision: 4a69d57e40966e4acd3988f35add20aa8b221eba
   branch: master
   specs:
     bootstrap_form (4.0.0.dev)
       rails (>= 5.0)
+
+GIT
+  remote: https://github.com/vladstoick/fyp_sql_assess.git
+  revision: fae1f7586d4b3e718d1ec629381bf35444490fea
+  specs:
+    sql_assess (0.1.0)
+      activesupport
+      mysql2
+      rgl
+      sql-parser-vlad (~> 0.0.13)
 
 GEM
   remote: https://rubygems.org/
@@ -219,7 +219,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sql-parser-vlad (0.0.7)
+    sql-parser-vlad (0.0.13)
       racc (= 1.4.12)
     sqlite3 (1.3.13)
     stream (0.5)
