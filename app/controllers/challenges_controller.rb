@@ -17,6 +17,7 @@ class ChallengesController < ApplicationController
   end
 
   def update
+    authorize @challenge
     if @challenge.update(challenge_params)
       flash[:success] = 'Successfully Updated'
       redirect_to challenge_path(
@@ -44,6 +45,12 @@ class ChallengesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    authorize @challenge
+    @challenge.destroy!
+    redirect_to challenges_path
   end
 
   private
