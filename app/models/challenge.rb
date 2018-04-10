@@ -3,6 +3,7 @@ class Challenge < ApplicationRecord
   validate :compile_sql
 
   has_many :submissions, class_name: 'Submission'
+  belongs_to :user, class_name: 'User'
 
   private
 

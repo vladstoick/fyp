@@ -2,6 +2,7 @@ require "rails_helper"
 
 describe Challenge do
   it { should have_many(:submissions) }
+  it { should belong_to(:user) }
   it { should validate_presence_of(:sql_schema) }
   it { should validate_presence_of(:sql_correct_query) }
   it { should validate_presence_of(:sql_seed) }
@@ -11,7 +12,8 @@ describe Challenge do
       described_class.new(
         sql_schema: sql_schema,
         sql_seed: sql_seed,
-        sql_correct_query: sql_correct_query
+        sql_correct_query: sql_correct_query,
+        user: create(:user)
       )
     end
 
