@@ -56,6 +56,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 3.7'
   gem 'shoulda'
+  gem 'simplecov', require: false
 end
 
 group :development do
