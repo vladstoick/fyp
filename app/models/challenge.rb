@@ -7,6 +7,7 @@ class Challenge < ApplicationRecord
   private
 
   def compile_sql
+    return unless sql_schema.present? && sql_correct_query.present? && sql_seed.present?
     result = SqlAssess::Assesor.new.compile(
       create_schema_sql_query: sql_schema,
       instructor_sql_query: sql_correct_query,

@@ -55,6 +55,7 @@ group :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 3.7'
+  gem 'shoulda'
 end
 
 group :development do
@@ -65,7 +66,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener'
-  gem 'pry'
 end
 
 gem 'sql_assess', github: 'vladstoick/fyp_sql_assess', require: true
