@@ -1,26 +1,16 @@
 require "rails_helper"
 
 describe Challenge do
+  subject { build(:challenge) }
   it { should have_many(:submissions) }
   it { should belong_to(:user) }
+  it { should validate_presence_of(:content) }
+  it { should validate_presence_of(:title) }
   it { should validate_presence_of(:sql_schema) }
   it { should validate_presence_of(:sql_correct_query) }
   it { should validate_presence_of(:sql_seed) }
 
   context "#compile_sql" do
-    subject do
-      described_class.new(
-        sql_schema: sql_schema,
-        sql_seed: sql_seed,
-        sql_correct_query: sql_correct_query,
-        user: create(:user)
-      )
-    end
-
-    let(:sql_schema) { "CREATE TABLE t1(id integer)" }
-    let(:sql_seed) { "INSERT INTO t1(id) VALUES (1)" }
-    let(:sql_correct_query) { "SELECT * FROM t1" }
-
     context "with no errors" do
       it "saves metadata" do
         expect(subject).to be_valid
@@ -35,7 +25,9 @@ describe Challenge do
     end
 
     context "with errors in the schema sql" do
-      let(:sql_schema) { "CREATE TABLE t1(id sda)" }
+      before do
+        subject.sql_schema = "CREATE TABLE t1(id sda)"
+      end
 
       it "adds an appropiate error" do
         expect(subject).to_not be_valid
@@ -48,7 +40,9 @@ describe Challenge do
     end
 
     context "with errors in the seed sql" do
-      let(:sql_seed) { "INSERT INTO t1(id sda) VALUES(1)" }
+      before do
+        subject.sql_seed = "INSERT INTO t1(id sda) VALUES(1)"
+      end
 
       it "adds an appropiate error" do
         expect(subject).to_not be_valid
@@ -61,7 +55,9 @@ describe Challenge do
     end
 
     context "with errors in the instructor sql" do
-      let(:sql_correct_query) { "SELECT a from t1" }
+      before do
+        subject.sql_correct_query = "SELECT a from t1"
+      end
 
       it "adds an appropiate error" do
         expect(subject).to_not be_valid

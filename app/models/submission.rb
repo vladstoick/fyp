@@ -11,6 +11,8 @@ class Submission < ApplicationRecord
   private
 
   def compile_sql
+    return if sql_query.nil?
+
     result = SqlAssess::Assesor.new.assess(
       create_schema_sql_query: challenge.sql_schema,
       instructor_sql_query: challenge.sql_correct_query,

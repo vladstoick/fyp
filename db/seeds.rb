@@ -20,6 +20,7 @@ student = User.create!(
 )
 
 challenge1 = Challenge.create!(
+  content: "Challenge 1",
   sql_schema: (
 <<~SQL
   CREATE TABLE table1(id integer, name varchar(255));
@@ -76,6 +77,7 @@ Submission.create!(
 )
 
 challenge2 = Challenge.create!(
+  content: "Challenge 2",
   sql_schema: (
 <<~SQL
   CREATE TABLE table1(id integer, name varchar(255));
@@ -116,6 +118,7 @@ Submission.create!(
 )
 
 challenge3 = Challenge.create!(
+  content: "Challenge 3",
   sql_schema: (
 <<~SQL
   CREATE TABLE table1(id integer, name varchar(255));
