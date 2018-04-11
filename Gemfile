@@ -56,7 +56,7 @@ group :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 3.7'
-  gem 'shoulda'
+  gem 'shoulda', require: false
   gem 'simplecov', require: false
 end
 
