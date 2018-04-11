@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SharedAssesor
   class_attribute :database_host
   class_attribute :database_port
@@ -9,7 +11,7 @@ class SharedAssesor
       database_host: database_host,
       database_port: database_port,
       database_username: database_username,
-      database_password: database_password,
+      database_password: database_password
     )
   end
 end

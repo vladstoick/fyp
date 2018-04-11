@@ -68,5 +68,20 @@ describe Challenge do
         ])
       end
     end
+
+    context "with parsing errors in the query sql" do
+      before do
+        subject.sql_correct_query = "SELECT ROUND(id, 2) from t1"
+      end
+
+      it "adds an appropiate error" do
+        expect(subject).to_not be_valid
+        expect(subject.errors.count).to eq(1)
+        expect(subject.errors[:sql_correct_query].count).to eq(1)
+        expect(subject.errors[:sql_correct_query]).to eq([
+          "Cannot canonicalize query"
+        ])
+      end
+    end
   end
 end

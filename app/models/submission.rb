@@ -27,5 +27,7 @@ class Submission < ApplicationRecord
     self.message = result.message
   rescue SqlAssess::DatabaseQueryExecutionFailed => exception
     errors.add(:sql_query, exception.message)
+  rescue SqlAssess::CanonicalizationError
+    errors.add(:sql_query, 'Cannot canonicalize query')
   end
 end

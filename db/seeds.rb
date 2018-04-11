@@ -20,7 +20,7 @@ student = User.create!(
 )
 
 challenge1 = Challenge.create!(
-  content: "Challenge 1",
+  content: 'Challenge 1',
   sql_schema: (
 <<~SQL
   CREATE TABLE table1(id integer, name varchar(255));
@@ -43,7 +43,7 @@ SQL
 Submission.create!(
   user: student,
   challenge: challenge1,
-  sql_query: 'SELECT * from table1',
+  sql_query: 'SELECT * from table1'
 )
 
 Submission.create!(
@@ -77,7 +77,7 @@ Submission.create!(
 )
 
 challenge2 = Challenge.create!(
-  content: "Challenge 2",
+  content: 'Challenge 2',
   sql_schema: (
 <<~SQL
   CREATE TABLE table1(id integer, name varchar(255));
@@ -118,7 +118,7 @@ Submission.create!(
 )
 
 challenge3 = Challenge.create!(
-  content: "Challenge 3",
+  content: 'Challenge 3',
   sql_schema: (
 <<~SQL
   CREATE TABLE table1(id integer, name varchar(255));

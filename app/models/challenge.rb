@@ -23,5 +23,7 @@ class Challenge < ApplicationRecord
     errors.add(:sql_seed, exception.message)
   rescue SqlAssess::DatabaseQueryExecutionFailed => exception
     errors.add(:sql_correct_query, exception.message)
+  rescue SqlAssess::CanonicalizationError
+    errors.add(:sql_correct_query, 'Cannot canonicalize query')
   end
 end
