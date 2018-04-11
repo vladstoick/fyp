@@ -12,4 +12,8 @@ class SubmissionPolicy < ApplicationPolicy
   def report?
     user.admin?
   end
+
+  def show?
+    super && (user.admin? || record.user == user)
+  end
 end
