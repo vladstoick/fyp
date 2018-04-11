@@ -50,6 +50,7 @@ class ChallengesController < ApplicationController
   def destroy
     authorize @challenge
     @challenge.destroy!
+    flash[:success] = 'Sucesfully destroyed'
     redirect_to challenges_path
   end
 
