@@ -8,6 +8,9 @@ class User < ApplicationRecord
 
   validates_inclusion_of :role, in: %w[admin student]
 
+  has_many :submissions, class_name: 'Submission', dependent: :destroy
+  has_many :challenges, class_name: 'Challenge', dependent: :destroy
+
   def admin?
     role == 'admin'
   end
