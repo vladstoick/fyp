@@ -7,6 +7,20 @@
 <h3>Schema:</h3>
 <pre><code class="sql"><%= @challenge.sql_schema %></code></pre>
 <hr>
+<% @challenge.metadata.each do |table| %>
+<h3><%= table["name"] %></h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <% table["columns"].each do |column| %>
+
+        <th><%= column.fetch("name") %> <%= column.fetch("type") %></th>
+      <% end %>
+    </tr>
+  </thead>
+</table>
+<% end %>
 
 <%= bootstrap_form_for [@challenge, @submission] do |f| %>
   <%= f.text_field :sql_query, class: "code-sql" %>
