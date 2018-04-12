@@ -30,4 +30,6 @@
   </tbody>
 </table>
 
-<%= link_to "Create new challenge", new_challenge_path, class: "btn btn-primary" %>
+<% if policy(Challenge).create? %>
+  <%= link_to "Create new challenge", new_challenge_path, class: "btn btn-primary" %>
+<% end %>
