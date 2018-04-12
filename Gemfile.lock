@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/vladstoick/fyp_sql_assess.git
-  revision: a90074365df4576c3f52572d09187ee46c42d3e5
+  revision: 290b94f04220d390392e231292af05862c708a8b
   specs:
     sql_assess (0.1.0)
       activesupport
