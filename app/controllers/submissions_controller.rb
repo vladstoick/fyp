@@ -1,12 +1,37 @@
 # frozen_string_literal: true
+require 'csv'
+
 
 class SubmissionsController < ApplicationController
   before_action :load_challenge
 
   def index
-    @submissions = @challenge.submissions
+    respond_to do |format|
+      format.html do
+        @submissions = @challenge.submissions
+        authorize @submissions
+      end
 
-    authorize @submissions
+      format.csv do
+        submissions = @challenge.best_submissions.includes(:user)
+
+        authorize submissions
+
+        final_csv = CSV.generate do |csv|
+          csv << %w[email grade]
+
+          submissions.each do |submission|
+            csv << [submission.user.email, submission.max_grade]
+          end
+        end
+
+        send_data(
+          final_csv,
+          filename: "grades_for_#{@challenge.title}.csv",
+          type: :csv
+        )
+      end
+    end
   end
 
   def show

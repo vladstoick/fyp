@@ -10,6 +10,46 @@ describe Challenge do
   it { should validate_presence_of(:sql_correct_query) }
   it { should validate_presence_of(:sql_seed) }
 
+  context "#best_submissions" do
+    subject { create(:challenge) }
+    let(:user1) { create(:user) }
+    let(:user2) { create(:user) }
+    let(:user3) { create(:user) }
+
+    before do
+      create(:submission, user: user1, challenge: subject).tap do |sub|
+        sub.update_attribute(:grade, 55)
+      end
+
+      create(:submission, user: user1, challenge: subject).tap do |sub|
+        sub.update_attribute(:grade, 60)
+      end
+
+      create(:submission, user: user1, challenge: subject).tap do |sub|
+        sub.update_attribute(:grade, 48)
+      end
+
+      create(:submission, user: user2, challenge: subject).tap do |sub|
+        sub.update_attribute(:grade, 48)
+      end
+
+      create(:submission, user: user2, challenge: subject).tap do |sub|
+        sub.update_attribute(:grade, 44)
+      end
+    end
+
+    it "returns the correct results" do
+      result = subject.best_submissions.map do |sub|
+        [sub.user_id, sub.max_grade]
+      end.to_h
+
+      expect(result).to eq({
+        user1.id => 60,
+        user2.id => 48,
+      })
+    end
+  end
+
   context "#compile_sql" do
     context "with no errors" do
       it "saves metadata" do

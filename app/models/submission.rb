@@ -8,6 +8,8 @@ class Submission < ApplicationRecord
 
   validate :compile_sql
 
+  scope :best_for_user, -> { group(:user_id) }
+
   private
 
   def compile_sql
