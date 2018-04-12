@@ -7,6 +7,10 @@ class Challenge < ApplicationRecord
   has_many :submissions, class_name: 'Submission', dependent: :destroy
   belongs_to :user, class_name: 'User'
 
+  def best_submissions
+    submissions.select('max(grade) as max_grade, user_id').group(:user_id)
+  end
+
   private
 
   def compile_sql

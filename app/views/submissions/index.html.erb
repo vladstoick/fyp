@@ -31,3 +31,9 @@
     <% end %>
   </tbody>
 </table>
+
+<%= link_to(
+  "Download CSV",
+  challenge_submissions_path(@challenge, format: :csv),
+  class: "btn btn-primary"
+)%>
