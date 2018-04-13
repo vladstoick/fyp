@@ -8,13 +8,13 @@ GIT
 
 GIT
   remote: https://github.com/vladstoick/fyp_sql_assess.git
-  revision: 924fdfc2bfea65c17756a68a53621d620f8b9c9e
+  revision: 11a0e7e2d01e671c3f2fc034a225c41de88fa7dd
   specs:
     sql_assess (0.1.0)
       activesupport
       mysql2
       rgl
-      sql-parser-vlad (~> 0.0.14)
+      sql-parser-vlad (~> 0.0.15)
 
 GEM
   remote: https://rubygems.org/
