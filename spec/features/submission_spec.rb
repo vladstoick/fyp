@@ -29,7 +29,7 @@ RSpec.feature "Requirement 8: Submitting solutions", :type => :feature do
 
       expect(page.current_path).to eq("/challenges/#{challenge.id}/submissions/#{Submission.last.id}")
       expect(page).to have_text("Successfully submitted!")
-      expect(page).to have_text("Your solutions is correct")
+      expect(page).to have_text("Your solution is correct")
     end
   end
 end
