@@ -1,6 +1,6 @@
 <% class_name = "where-clause-depth-#{depth}" %>
 <% if query == {} %>
-  No where conditions
+  No conditions
 <% elsif query["type"] =="AND" %>
   <% query["clauses"].each_with_index do |clause, i| %>
     <% if i != 0 %>

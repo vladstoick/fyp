@@ -82,6 +82,22 @@
       <td><%= @submission.attribute_grades["where"].to_d * 100.0 %>%</td>
     </tr>
     <tr>
+      <td>Having</td>
+      <td>
+      <%= render partial: "where", locals: {
+          query: @submission.metadata["student"]["having"],
+          depth: 0
+        } %>
+      </td>
+      <td>
+        <%= render partial: "where", locals: {
+          query: @submission.metadata["instructor"]["having"],
+          depth: 0
+        } %>
+      </td>
+      <td><%= @submission.attribute_grades["having"].to_d * 100.0 %>%</td>
+    </tr>
+    <tr>
       <td>Order by</td>
       <td>
         <%= render partial: "order_by", locals: {
